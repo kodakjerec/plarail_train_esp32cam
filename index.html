@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>ESP32-CAM Robot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin: 0px auto;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100vw;
+            height: 50vh;
+        }
+
+        .btn {
+            position: relative;
+            background: #5ad;
+            color: #fff;
+            cursor: pointer;
+            width: 100%;
+            height: 15vh;
+            font-size: 10vmin;
+        }
+
+        img {
+            width: 100vw;
+            height: 50vh;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="" id="photo">
+	<table>
+        <tr>
+            <td align="center">
+                <button class="btn" onmousedown="toggleCheckbox('UP');" ontouchstart="toggleCheckbox('UP');">UP</button>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <button style="background-color: red;" class="btn" onmousedown="toggleCheckbox('STOP');"
+                    ontouchstart="toggleCheckbox('STOP');">STOP</button>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <button class="btn" onmousedown="toggleCheckbox('DOWN');"
+                    ontouchstart="toggleCheckbox('DOWN');">DOWN</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function toggleCheckbox(x) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/action?go=" + x, true);
+            xhr.send();
+        }
+        window.onload = document.getElementById("photo").src = window.location.href.slice(0, -1) + ":81/stream";
+    </script>
+</body>
+
+</html>
