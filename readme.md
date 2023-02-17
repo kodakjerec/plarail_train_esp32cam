@@ -30,4 +30,5 @@
 # Video
 
 <a src="https://youtube.com/shorts/aUUs-A2DXvQ?feature=share">Youtube link</a>  
+https://youtube.com/shorts/aUUs-A2DXvQ?feature=share  
 <img src="pics/video.jpg" width="200">
